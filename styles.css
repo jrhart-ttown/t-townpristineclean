@@ -25,9 +25,9 @@ img{display:block;max-width:100%}
 
 /* header */
 header{position:sticky;top:0;z-index:60;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.08)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 28px}
+header .wrap{display:flex;align-items:center;gap:48px;padding:14px 28px}
 .logo img{height:46px;width:auto}
-nav.main{display:flex;align-items:center;gap:30px}
+nav.main{display:flex;align-items:center;gap:30px;margin-left:auto}
 nav.main ul{display:flex;gap:26px;list-style:none;font-weight:600;font-size:15px}
 nav.main a{color:#CFE0F4;transition:color .2s}
 nav.main a:hover{color:#fff}
