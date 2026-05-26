@@ -30,7 +30,7 @@
       <ul>
         <li><a href="#services">Services</a></li>
         <li><a href="#industries">Industries</a></li>
-        <li><a href="#work">Our Work</a></li>
+        <li><a href="service-areas.html">Service Areas</a></li>
         <li><a href="#why">Why Us</a></li>
         <li><a href="#reviews">Reviews</a></li>
       </ul>
@@ -210,33 +210,28 @@
       <div class="line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>1726 S Yorktown Ave, Tulsa, OK 74104</div>
     </div>
     <div class="form">
-      <div id="formFields">
+      <form action="https://formspree.io/f/xbdbpope" method="POST">
         <div class="row">
-          <div class="field"><label>Name</label><input type="text" id="f_name" placeholder="Your name"></div>
-          <div class="field"><label>Business</label><input type="text" placeholder="Company / organization"></div>
+          <div class="field"><label>Name</label><input type="text" name="name" placeholder="Your name" required></div>
+          <div class="field"><label>Business</label><input type="text" name="business" placeholder="Company / organization"></div>
         </div>
         <div class="row">
-          <div class="field"><label>Email</label><input type="email" placeholder="you@company.com"></div>
-          <div class="field"><label>Phone</label><input type="tel" placeholder="(539) 000-0000"></div>
+          <div class="field"><label>Email</label><input type="email" name="email" placeholder="you@company.com" required></div>
+          <div class="field"><label>Phone</label><input type="tel" name="phone" placeholder="(539) 000-0000"></div>
         </div>
         <div class="row">
           <div class="field"><label>Type of space</label>
-            <select><option>Office / workspace</option><option>Medical or dental</option><option>Event center / camp</option><option>Faith / worship</option><option>Retail / storefront</option><option>Residential</option><option>Other</option></select>
+            <select name="space_type" required><option value="">Select one...</option><option>Office / workspace</option><option>Medical or dental</option><option>Event center / camp</option><option>Faith / worship</option><option>Retail / storefront</option><option>Residential</option><option>Other</option></select>
           </div>
           <div class="field"><label>Frequency</label>
-            <select><option>Recurring (daily/weekly)</option><option>Bi-weekly</option><option>Monthly</option><option>One-time / deep clean</option><option>Not sure yet</option></select>
+            <select name="frequency" required><option value="">Select one...</option><option>Recurring (daily/weekly)</option><option>Bi-weekly</option><option>Monthly</option><option>One-time / deep clean</option><option>Not sure yet</option></select>
           </div>
         </div>
-        <div class="field"><label>Tell us about your space</label><textarea placeholder="Square footage, location, what you're looking for..."></textarea></div>
-        <button class="btn btn-primary" onclick="submitForm()">Request My Walkthrough
+        <div class="field"><label>Tell us about your space</label><textarea name="message" placeholder="Square footage, location, what you're looking for..." required></textarea></div>
+        <button type="submit" class="btn btn-primary">Request My Walkthrough
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         <p class="form-tiny">We'll only use your info to respond to your request.</p>
-      </div>
-      <div class="ok" id="formOk">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
-        <b>Thanks — request received!</b>
-        <p>We'll reach out shortly to set up your walkthrough. (Demo: connect a form service to email submissions to info@.)</p>
-      </div>
+      </form>
     </div>
   </div>
 </section>
@@ -263,11 +258,5 @@
   </div>
 </footer>
 
-<script>
-function submitForm(){
-  document.getElementById('formFields').style.display='none';
-  document.getElementById('formOk').style.display='block';
-}
-</script>
 </body>
 </html>
