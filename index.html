@@ -256,7 +256,6 @@
     </div>
     <div class="form">
       <form action="https://formspree.io/f/xbdbpope" method="POST" id="walkthrough-form">
-        <input type="hidden" name="_next" value="https://www.t-townpristineclean.com/thank-you">
         <div class="row">
           <div class="field"><label>Name</label><input type="text" name="name" placeholder="Your name" required></div>
           <div class="field"><label>Business</label><input type="text" name="business" placeholder="Company / organization"></div>
@@ -306,13 +305,15 @@
 
 <script>
 document.querySelector('form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
   // Track form submission as conversion event
   gtag('event', 'form_submit', {
     'form_name': 'walkthrough_request',
     'event_category': 'lead'
   });
 
-  // Also track as conversion if Google Ads tag is present
+  // Track conversion
   if (typeof gtag !== 'undefined') {
     gtag('event', 'conversion', {
       'value': 1.0,
@@ -321,8 +322,19 @@ document.querySelector('form').addEventListener('submit', function(e) {
     });
   }
 
-  // Form will redirect via Formspree's _next parameter
-  // This event fires before the redirect happens
+  // Submit form data
+  const form = this;
+  const formData = new FormData(form);
+  fetch(form.action, {
+    method: 'POST',
+    body: formData
+  }).then(() => {
+    // Redirect to thank you page after submission
+    window.location.href = '/thank-you';
+  }).catch(() => {
+    // Still redirect even if submission fails
+    window.location.href = '/thank-you';
+  });
 });
 </script>
 
