@@ -32,6 +32,11 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('config', 'AW-16498902872');
+
+  // Fire conversion event when thank-you page loads
+  gtag('event', 'conversion', {
+    'send_to': 'AW-16498902872/CONVERSION_LABEL'
+  });
 </script>
 <style>
 .thank-you-wrap { max-width: 720px; margin: 0 auto; padding: 120px 28px; text-align: center; }
