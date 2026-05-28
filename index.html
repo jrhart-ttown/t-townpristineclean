@@ -248,7 +248,8 @@
       <div class="line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Serving Tulsa, Sand Springs, Broken Arrow, Owasso, Bixby &amp; Jenks</div>
     </div>
     <div class="form">
-      <form action="https://formspree.io/f/xbdbpope" method="POST">
+      <form action="https://formspree.io/f/xbdbpope" method="POST" id="walkthrough-form">
+        <input type="hidden" name="_next" value="https://www.t-townpristineclean.com/thank-you">
         <div class="row">
           <div class="field"><label>Name</label><input type="text" name="name" placeholder="Your name" required></div>
           <div class="field"><label>Business</label><input type="text" name="business" placeholder="Company / organization"></div>
@@ -297,11 +298,24 @@
 </footer>
 
 <script>
-document.querySelector('form').addEventListener('submit', function() {
+document.querySelector('form').addEventListener('submit', function(e) {
+  // Track form submission as conversion event
   gtag('event', 'form_submit', {
     'form_name': 'walkthrough_request',
     'event_category': 'lead'
   });
+
+  // Also track as conversion if Google Ads tag is present
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'conversion', {
+      'value': 1.0,
+      'currency': 'USD',
+      'transaction_id': 'walkthrough_' + Date.now()
+    });
+  }
+
+  // Form will redirect via Formspree's _next parameter
+  // This event fires before the redirect happens
 });
 </script>
 
