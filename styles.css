@@ -171,6 +171,34 @@ footer{background:var(--navy);color:#9FB4CE;padding:60px 0 26px}
 .cred-grid b{display:block;font-size:15px}
 .cred-grid small{color:var(--muted);font-size:13.5px}
 
+/* ===== refactored inline styles ===== */
+.navy-box{background:var(--navy-2);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:40px;color:#fff}
+.navy-box h3{color:#fff}
+.navy-box h4{color:#fff;margin-bottom:12px}
+.text-light{color:#B7CCE6}
+.text-white{color:#fff}
+.flex-center{display:flex;justify-content:center}
+.flex-gap{gap:10px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.chip{background:rgba(255,255,255,.12);color:#fff;padding:9px 16px;border-radius:999px;display:inline-block}
+.step-circle{width:24px;height:24px;background:var(--gold);color:#0B1F3A;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;min-width:24px;flex:none}
+.step-text{margin:4px 0 0;color:#B7CCE6;font-size:14px}
+.step-item{display:flex;gap:16px;margin-bottom:16px}
+.step-item:last-child{margin-bottom:0}
+.rating-badge{margin-top:16px;display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 18px;box-shadow:var(--shadow-sm)}
+.rating-stars{color:var(--gold);letter-spacing:2px;font-size:16px}
+.rating-score{font-family:'Bricolage Grotesque';font-weight:700}
+.rating-label{color:var(--muted);font-size:14px}
+.process-box{background:var(--navy-2);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:40px;margin-top:60px;margin-bottom:60px;color:#fff;text-align:center}
+.process-box h3{font-size:28px;margin-bottom:12px;color:#fff}
+.process-box p{font-size:16px;color:#B7CCE6;max-width:600px;margin:0 auto 40px}
+.process-list{max-width:500px;list-style:none;padding:0;margin:0}
+.process-item{display:flex;gap:16px;margin-bottom:16px}
+.process-item:last-child{margin-bottom:0}
+.section-highlight{background:var(--navy-2);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:40px;text-align:center;margin-bottom:60px;color:#fff}
+.section-highlight h3{font-size:20px;margin-bottom:24px;font-weight:600;color:#fff}
+.section-highlight p{color:#B7CCE6}
+
 @media(max-width:920px){
   .hero .wrap,.owner .wrap,.about-hero .wrap{grid-template-columns:1fr;gap:42px}
   .proc-grid{grid-template-columns:1fr 1fr}
