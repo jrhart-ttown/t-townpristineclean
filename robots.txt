@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+Disallow: /thank-you
+
+Sitemap: https://t-townpristineclean.com/sitemap.xml
+
+# Block AI scraping tools if needed (optional)
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
