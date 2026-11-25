@@ -41,6 +41,7 @@
 .area-chips .chip{background:var(--bg-2);color:var(--navy);border:1px solid var(--line)}
 .size-note{display:none;background:#FFF6E5;border:1px solid #F1D59A;color:#6B4E12;border-radius:8px;padding:12px 14px;margin:4px 0 14px;font-size:14.5px}
 </style>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -207,6 +208,8 @@
           </div>
         </div>
         <div class="field"><label>Anything else we should know?</label><textarea name="message" placeholder="Pets, priorities, rooms to focus on, access details..."></textarea></div>
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAGSpPsR-6OZHEMkR"></div>
         <button type="submit" class="btn btn-primary">Request My Home Quote
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         <p class="form-tiny">We'll only use your info to respond to your request.</p>
@@ -272,6 +275,7 @@
       // Page load of /home-quote-received is the Google Ads residential conversion
       window.location.href = '/home-quote-received';
     }).catch(function(){
+      if (window.turnstile) turnstile.reset();
       btn.disabled = false; btn.innerHTML = btnLabel;
       var msg = document.createElement('p');
       msg.className = 'form-error';
