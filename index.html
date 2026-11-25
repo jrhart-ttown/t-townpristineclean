@@ -212,6 +212,7 @@
   ]
 }
 </script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -422,6 +423,8 @@
           </div>
         </div>
         <div class="field"><label>Tell us about your space</label><textarea name="message" placeholder="Square footage, location, what you're looking for..." required></textarea></div>
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAGSpPsR-6OZHEMkR"></div>
         <button type="submit" class="btn btn-primary">Request My Walkthrough
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         <p class="form-tiny">We'll only use your info to respond to your request.</p>
@@ -486,6 +489,7 @@ document.getElementById('walkthrough-form').addEventListener('submit', function(
     // Thank-you page load is the Google Ads lead conversion
     window.location.href = '/thank-you';
   }).catch(function() {
+    if (window.turnstile) turnstile.reset();
     if (btn) { btn.disabled = false; btn.innerHTML = btnLabel; }
     const msg = document.createElement('p');
     msg.className = 'form-error';
